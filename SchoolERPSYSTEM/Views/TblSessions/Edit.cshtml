@@ -1,0 +1,113 @@
+﻿@model SchoolERPSYSTEM.Models.TblSession
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Admin.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class=" fas  fa-calendar-alt"></i> Update Session</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.SessionID)
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Session, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Session, new { htmlAttributes = new { @class = "form-control", placeholder = "Session" } })
+                                            @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Term, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Term, new { htmlAttributes = new { @class = "form-control", placeholder = "Term" } })
+                                            @Html.ValidationMessageFor(model => model.Term, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <div class="checkbox">
+                                                @Html.EditorFor(model => model.IsActive)
+                                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button type="submit" class="btn btn-github">
+                                                <i class="fas fa-recycle"></i> Edit
+                                            </button> |
+                                            <a href="@Url.Action("Index", "TbleSession")" class="btn btn-orange">
+                                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                                <span>
+                                                    <strong>Back to List</strong>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                          
+
+                            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+                            <script src="~/Scripts/jquery.validate.min.js"></script>
+                            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

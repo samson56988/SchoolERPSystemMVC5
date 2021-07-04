@@ -1,0 +1,108 @@
+﻿@model IEnumerable<SchoolERPSYSTEM.Models.MStaff>
+
+@{
+    ViewBag.Title = "ActivatedStaffList";
+    Layout = "~/Views/Admin.cshtml";
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-users"></i> Staff</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                       
+                                       
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+
+                                        <th>
+                                           <label>Staff ID</label>
+                                        </th>
+
+                                        <th>
+                                           <label>Staff Name</label>
+                                        </th>
+                                        <th>
+                                            <label>Account Status</label>
+                                        </th>
+
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.StaffID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Fullname)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AccountStatus)
+                                        </td>
+                                        <td>
+                                            @*@Html.ActionLink("Activate", "" ,new { id = item.StaffID },   new { @class = "btn btn-primary" }) |
+                                            @Html.ActionLink("Deactivate", "",  new { id = item.StaffID }, new { @class = "btn btn-danger" })*@ 
+                                            <a href="@Url.Action("Activateaccount", "Staff", new { id = item.StaffID })" class="btn btn-mini btn-outline-orange icon-edit bigger-10"><img src="~/images/iconfinder_3844396_approve_hand_like_thumb_up_icon_32px.png" /></a>
+                                            <a href="@Url.Action("DeActivateaccount", "Staff", new { id = item.StaffID })" class="btn btn-mini btn-outline-dark icon-edit bigger-10"><img src="~/images/iconfinder_6617660_crisis_decline_down_loss_report_icon_32px.png" /></a>
+                                            
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

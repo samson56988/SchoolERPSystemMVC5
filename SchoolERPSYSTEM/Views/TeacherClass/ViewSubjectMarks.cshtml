@@ -1,0 +1,154 @@
+﻿@model IEnumerable<SchoolERPSYSTEM.Models.ListSubject>
+
+@{
+    ViewBag.Title = "ViewSubjectMarks";
+    Layout = "~/Views/Teacher.cshtml";
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class=" fas fa-book"></i> Recorded Marks</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <a href="@Url.Action("AddSubjectMark", "TeacherClass")" class="btn btn-dark">
+                                            <i class="fas fa-plus-square"></i>
+                                            <span>
+                                                <strong>Create</strong>
+                                            </span>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Firstname)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Lastname)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Subject)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Levelname)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.session)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Term)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstAss)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SecondAss)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Exams)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Total)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Grade)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Firstname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Lastname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Subject)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Levelname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.session)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Term)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FirstAss)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SecondAss)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Exams)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Total)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Grade)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "Subjects", new { id = item.Grade })" class="btn btn-mini btn-outline-orange icon-edit bigger-10"><img src="~/images/iconfinder_314251_edit_document_icon_32px.png" /></a>
+                                              
+                                            </td>
+                                        </tr>
+                                    }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SchoolERPSYSTEM.Models.Role>
+
+@{
+    ViewBag.Title = "RoleList";
+    Layout = "~/Views/Admin.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-cogs"></i> Role List</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <a href="@Url.Action("Role", "Staff")" class="btn btn-dark">
+                                            <i class="fas fa-plus-square"></i>
+                                            <span>
+                                                <strong>Create</strong>
+                                            </span>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered">
+
+                                <thead class="thead-dark">
+                                    <tr>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.StaffID)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Fullname)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Rolename)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.StaffID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Fullname)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Rolename)
+                                        </td>
+                                        <td>
+                                        
+                                            <a href="@Url.Action("Delete", "RoleList", new { id = item.StaffID })" class="btn btn-mini btn-outline-dark icon-edit bigger-10"><img src="~/images/iconfinder_23231_delete_icon_32px.png" /></a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

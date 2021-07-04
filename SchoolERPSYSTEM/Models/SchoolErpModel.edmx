@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SchoolErpSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AutoID">
+          <Key>
+            <PropertyRef Name="Idname" />
+          </Key>
+          <Property Name="Idname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClassLevel">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Levelname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Section" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClassType">
+          <Key>
+            <PropertyRef Name="ClassTypeID" />
+          </Key>
+          <Property Name="ClassTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="DesignationID" />
+          </Key>
+          <Property Name="DesignationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FeeStructure">
+          <Key>
+            <PropertyRef Name="FeeID" />
+          </Key>
+          <Property Name="FeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectionID" Type="int" />
+          <Property Name="LevelID" Type="int" />
+          <Property Name="FeeTypeID" Type="int" />
+          <Property Name="Amount" Type="money" />
+        </EntityType>
+        <EntityType Name="FeeType">
+          <Key>
+            <PropertyRef Name="FeeTypeID" />
+          </Key>
+          <Property Name="FeeTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fee" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="StaffType">
+          <Key>
+            <PropertyRef Name="StaffTypeID" />
+          </Key>
+          <Property Name="StaffTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StudentTble">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdmissionNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="middlename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Nationality" Type="int" />
+          <Property Name="LocalGov" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Section" Type="int" Nullable="false" />
+          <Property Name="ClassLevel" Type="int" Nullable="false" />
+          <Property Name="ClassAlphabet" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="AdmissionDate" Type="date" Nullable="false" />
+          <Property Name="Fathername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FatherOccupation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mothersname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mothersoccupation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fatherno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fathersemail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mothersno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mothersEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClassType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="Cityid" />
+          </Key>
+          <Property Name="Cityid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cityname" Type="varchar" MaxLength="100" />
+          <Property Name="sid" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblSession">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Session" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Term" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sname" Type="varchar" MaxLength="100" />
+          <Property Name="Cid" Type="int" />
+        </EntityType>
+        <Association Name="FK_ClassLevel_ClassType">
+          <End Role="ClassType" Type="Self.ClassType" Multiplicity="1" />
+          <End Role="ClassLevel" Type="Self.ClassLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="ClassLevel">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeStructure_ClassLevel">
+          <End Role="ClassLevel" Type="Self.ClassLevel" Multiplicity="0..1" />
+          <End Role="FeeStructure" Type="Self.FeeStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassLevel">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="FeeStructure">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeStructure_ClassType">
+          <End Role="ClassType" Type="Self.ClassType" Multiplicity="0..1" />
+          <End Role="FeeStructure" Type="Self.FeeStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="FeeStructure">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeStructure_FeeType">
+          <End Role="FeeType" Type="Self.FeeType" Multiplicity="0..1" />
+          <End Role="FeeStructure" Type="Self.FeeStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeeType">
+              <PropertyRef Name="FeeTypeID" />
+            </Principal>
+            <Dependent Role="FeeStructure">
+              <PropertyRef Name="FeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTble_ClassLevel">
+          <End Role="ClassLevel" Type="Self.ClassLevel" Multiplicity="1" />
+          <End Role="StudentTble" Type="Self.StudentTble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassLevel">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="StudentTble">
+              <PropertyRef Name="ClassLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTble_ClassType">
+          <End Role="ClassType" Type="Self.ClassType" Multiplicity="1" />
+          <End Role="StudentTble" Type="Self.StudentTble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="StudentTble">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTble_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="StudentTble" Type="Self.StudentTble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="StudentTble">
+              <PropertyRef Name="Nationality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_ClassType">
+          <End Role="ClassType" Type="Self.ClassType" Multiplicity="1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="ClassType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCity_tblState">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="0..1" />
+          <End Role="tblCity" Type="Self.tblCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="SID" />
+            </Principal>
+            <Dependent Role="tblCity">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblState_tblCountry">
+          <End Role="tblCountry" Type="Self.tblCountry" Multiplicity="0..1" />
+          <End Role="tblState" Type="Self.tblState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="tblState">
+              <PropertyRef Name="Cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SchoolErpSystemModelStoreContainer">
+          <EntitySet Name="AutoID" EntityType="Self.AutoID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassLevel" EntityType="Self.ClassLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassType" EntityType="Self.ClassType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeStructure" EntityType="Self.FeeStructure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeType" EntityType="Self.FeeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffType" EntityType="Self.StaffType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTble" EntityType="Self.StudentTble" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCity" EntityType="Self.tblCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCountry" EntityType="Self.tblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblSession" EntityType="Self.TblSession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblState" EntityType="Self.tblState" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClassLevel_ClassType" Association="Self.FK_ClassLevel_ClassType">
+            <End Role="ClassType" EntitySet="ClassType" />
+            <End Role="ClassLevel" EntitySet="ClassLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeStructure_ClassLevel" Association="Self.FK_FeeStructure_ClassLevel">
+            <End Role="ClassLevel" EntitySet="ClassLevel" />
+            <End Role="FeeStructure" EntitySet="FeeStructure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeStructure_ClassType" Association="Self.FK_FeeStructure_ClassType">
+            <End Role="ClassType" EntitySet="ClassType" />
+            <End Role="FeeStructure" EntitySet="FeeStructure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeStructure_FeeType" Association="Self.FK_FeeStructure_FeeType">
+            <End Role="FeeType" EntitySet="FeeType" />
+            <End Role="FeeStructure" EntitySet="FeeStructure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTble_ClassLevel" Association="Self.FK_StudentTble_ClassLevel">
+            <End Role="ClassLevel" EntitySet="ClassLevel" />
+            <End Role="StudentTble" EntitySet="StudentTble" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTble_ClassType" Association="Self.FK_StudentTble_ClassType">
+            <End Role="ClassType" EntitySet="ClassType" />
+            <End Role="StudentTble" EntitySet="StudentTble" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTble_tblCountry" Association="Self.FK_StudentTble_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="StudentTble" EntitySet="StudentTble" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_ClassType" Association="Self.FK_Subject_ClassType">
+            <End Role="ClassType" EntitySet="ClassType" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCity_tblState" Association="Self.FK_tblCity_tblState">
+            <End Role="tblState" EntitySet="tblState" />
+            <End Role="tblCity" EntitySet="tblCity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblState_tblCountry" Association="Self.FK_tblState_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountry" />
+            <End Role="tblState" EntitySet="tblState" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchoolErpSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClassType">
+          <Key>
+            <PropertyRef Name="ClassTypeID" />
+          </Key>
+          <Property Name="ClassTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Subjects" Relationship="SchoolErpSystemModel.FK_Subject_ClassType" FromRole="ClassType" ToRole="Subject" />
+          <NavigationProperty Name="ClassLevels" Relationship="SchoolErpSystemModel.FK_ClassLevel_ClassType" FromRole="ClassType" ToRole="ClassLevel" />
+          <NavigationProperty Name="FeeStructures" Relationship="SchoolErpSystemModel.FK_FeeStructure_ClassType" FromRole="ClassType" ToRole="FeeStructure" />
+          <NavigationProperty Name="StudentTbles" Relationship="SchoolErpSystemModel.FK_StudentTble_ClassType" FromRole="ClassType" ToRole="StudentTble" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClassType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClassType1" Relationship="SchoolErpSystemModel.FK_Subject_ClassType" FromRole="Subject" ToRole="ClassType" />
+        </EntityType>
+        <EntityContainer Name="SchoolErpSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClassTypes" EntityType="Self.ClassType" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <AssociationSet Name="FK_Subject_ClassType" Association="SchoolErpSystemModel.FK_Subject_ClassType">
+            <End Role="ClassType" EntitySet="ClassTypes" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <EntitySet Name="TblSessions" EntityType="SchoolErpSystemModel.TblSession" />
+          <EntitySet Name="ClassLevels" EntityType="SchoolErpSystemModel.ClassLevel" />
+          <AssociationSet Name="FK_ClassLevel_ClassType" Association="SchoolErpSystemModel.FK_ClassLevel_ClassType">
+            <End Role="ClassType" EntitySet="ClassTypes" />
+            <End Role="ClassLevel" EntitySet="ClassLevels" />
+          </AssociationSet>
+          <EntitySet Name="FeeTypes" EntityType="SchoolErpSystemModel.FeeType" />
+          <EntitySet Name="FeeStructures" EntityType="SchoolErpSystemModel.FeeStructure" />
+          <AssociationSet Name="FK_FeeStructure_ClassLevel" Association="SchoolErpSystemModel.FK_FeeStructure_ClassLevel">
+            <End Role="ClassLevel" EntitySet="ClassLevels" />
+            <End Role="FeeStructure" EntitySet="FeeStructures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeStructure_ClassType" Association="SchoolErpSystemModel.FK_FeeStructure_ClassType">
+            <End Role="ClassType" EntitySet="ClassTypes" />
+            <End Role="FeeStructure" EntitySet="FeeStructures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeeStructure_FeeType" Association="SchoolErpSystemModel.FK_FeeStructure_FeeType">
+            <End Role="FeeType" EntitySet="FeeTypes" />
+            <End Role="FeeStructure" EntitySet="FeeStructures" />
+          </AssociationSet>
+          <EntitySet Name="tblCities" EntityType="SchoolErpSystemModel.tblCity" />
+          <EntitySet Name="tblCountries" EntityType="SchoolErpSystemModel.tblCountry" />
+          <EntitySet Name="tblStates" EntityType="SchoolErpSystemModel.tblState" />
+          <AssociationSet Name="FK_tblCity_tblState" Association="SchoolErpSystemModel.FK_tblCity_tblState">
+            <End Role="tblState" EntitySet="tblStates" />
+            <End Role="tblCity" EntitySet="tblCities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblState_tblCountry" Association="SchoolErpSystemModel.FK_tblState_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="tblState" EntitySet="tblStates" />
+          </AssociationSet>
+          <EntitySet Name="StudentTbles" EntityType="SchoolErpSystemModel.StudentTble" />
+          <AssociationSet Name="FK_StudentTble_ClassLevel" Association="SchoolErpSystemModel.FK_StudentTble_ClassLevel">
+            <End Role="ClassLevel" EntitySet="ClassLevels" />
+            <End Role="StudentTble" EntitySet="StudentTbles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTble_ClassType" Association="SchoolErpSystemModel.FK_StudentTble_ClassType">
+            <End Role="ClassType" EntitySet="ClassTypes" />
+            <End Role="StudentTble" EntitySet="StudentTbles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTble_tblCountry" Association="SchoolErpSystemModel.FK_StudentTble_tblCountry">
+            <End Role="tblCountry" EntitySet="tblCountries" />
+            <End Role="StudentTble" EntitySet="StudentTbles" />
+          </AssociationSet>
+          <EntitySet Name="Designations" EntityType="SchoolErpSystemModel.Designation" />
+          <EntitySet Name="StaffTypes" EntityType="SchoolErpSystemModel.StaffType" />
+          <EntitySet Name="AutoIDs" EntityType="SchoolErpSystemModel.AutoID" />
+          <FunctionImport Name="getStaffwithID" ReturnType="Collection(SchoolErpSystemModel.getStaffwithID_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
+        <Association Name="FK_Subject_ClassType">
+          <End Type="SchoolErpSystemModel.ClassType" Role="ClassType" Multiplicity="1" />
+          <End Type="SchoolErpSystemModel.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="ClassType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblSession">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Session" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Term" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ClassLevel">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Levelname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClassType" Relationship="SchoolErpSystemModel.FK_ClassLevel_ClassType" FromRole="ClassLevel" ToRole="ClassType" />
+          <NavigationProperty Name="FeeStructures" Relationship="SchoolErpSystemModel.FK_FeeStructure_ClassLevel" FromRole="ClassLevel" ToRole="FeeStructure" />
+          <NavigationProperty Name="StudentTbles" Relationship="SchoolErpSystemModel.FK_StudentTble_ClassLevel" FromRole="ClassLevel" ToRole="StudentTble" />
+        </EntityType>
+        <Association Name="FK_ClassLevel_ClassType">
+          <End Type="SchoolErpSystemModel.ClassType" Role="ClassType" Multiplicity="1" />
+          <End Type="SchoolErpSystemModel.ClassLevel" Role="ClassLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="ClassLevel">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FeeType">
+          <Key>
+            <PropertyRef Name="FeeTypeID" />
+          </Key>
+          <Property Name="FeeTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fee" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FeeStructures" Relationship="SchoolErpSystemModel.FK_FeeStructure_FeeType" FromRole="FeeType" ToRole="FeeStructure" />
+        </EntityType>
+        <EntityType Name="FeeStructure">
+          <Key>
+            <PropertyRef Name="FeeID" />
+          </Key>
+          <Property Name="FeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="Int32" />
+          <Property Name="LevelID" Type="Int32" />
+          <Property Name="FeeTypeID" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="ClassLevel" Relationship="SchoolErpSystemModel.FK_FeeStructure_ClassLevel" FromRole="FeeStructure" ToRole="ClassLevel" />
+          <NavigationProperty Name="ClassType" Relationship="SchoolErpSystemModel.FK_FeeStructure_ClassType" FromRole="FeeStructure" ToRole="ClassType" />
+          <NavigationProperty Name="FeeType" Relationship="SchoolErpSystemModel.FK_FeeStructure_FeeType" FromRole="FeeStructure" ToRole="FeeType" />
+        </EntityType>
+        <Association Name="FK_FeeStructure_ClassLevel">
+          <End Type="SchoolErpSystemModel.ClassLevel" Role="ClassLevel" Multiplicity="0..1" />
+          <End Type="SchoolErpSystemModel.FeeStructure" Role="FeeStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassLevel">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="FeeStructure">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeStructure_ClassType">
+          <End Type="SchoolErpSystemModel.ClassType" Role="ClassType" Multiplicity="0..1" />
+          <End Type="SchoolErpSystemModel.FeeStructure" Role="FeeStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="FeeStructure">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeeStructure_FeeType">
+          <End Type="SchoolErpSystemModel.FeeType" Role="FeeType" Multiplicity="0..1" />
+          <End Type="SchoolErpSystemModel.FeeStructure" Role="FeeStructure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeeType">
+              <PropertyRef Name="FeeTypeID" />
+            </Principal>
+            <Dependent Role="FeeStructure">
+              <PropertyRef Name="FeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblCity">
+          <Key>
+            <PropertyRef Name="Cityid" />
+          </Key>
+          <Property Name="Cityid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cityname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sid" Type="Int32" />
+          <NavigationProperty Name="tblState" Relationship="SchoolErpSystemModel.FK_tblCity_tblState" FromRole="tblCity" ToRole="tblState" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblStates" Relationship="SchoolErpSystemModel.FK_tblState_tblCountry" FromRole="tblCountry" ToRole="tblState" />
+          <NavigationProperty Name="StudentTbles" Relationship="SchoolErpSystemModel.FK_StudentTble_tblCountry" FromRole="tblCountry" ToRole="StudentTble" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cid" Type="Int32" />
+          <NavigationProperty Name="tblCities" Relationship="SchoolErpSystemModel.FK_tblCity_tblState" FromRole="tblState" ToRole="tblCity" />
+          <NavigationProperty Name="tblCountry" Relationship="SchoolErpSystemModel.FK_tblState_tblCountry" FromRole="tblState" ToRole="tblCountry" />
+        </EntityType>
+        <Association Name="FK_tblCity_tblState">
+          <End Type="SchoolErpSystemModel.tblState" Role="tblState" Multiplicity="0..1" />
+          <End Type="SchoolErpSystemModel.tblCity" Role="tblCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="SID" />
+            </Principal>
+            <Dependent Role="tblCity">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblState_tblCountry">
+          <End Type="SchoolErpSystemModel.tblCountry" Role="tblCountry" Multiplicity="0..1" />
+          <End Type="SchoolErpSystemModel.tblState" Role="tblState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="tblState">
+              <PropertyRef Name="Cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StudentTble">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdmissionNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="middlename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nationality" Type="Int32" />
+          <Property Name="LocalGov" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="Int32" Nullable="false" />
+          <Property Name="ClassLevel" Type="Int32" Nullable="false" />
+          <Property Name="ClassAlphabet" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="AdmissionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fathername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherOccupation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mothersname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mothersoccupation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fatherno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fathersemail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mothersno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mothersEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClassLevel1" Relationship="SchoolErpSystemModel.FK_StudentTble_ClassLevel" FromRole="StudentTble" ToRole="ClassLevel" />
+          <NavigationProperty Name="ClassType" Relationship="SchoolErpSystemModel.FK_StudentTble_ClassType" FromRole="StudentTble" ToRole="ClassType" />
+          <NavigationProperty Name="tblCountry" Relationship="SchoolErpSystemModel.FK_StudentTble_tblCountry" FromRole="StudentTble" ToRole="tblCountry" />
+        </EntityType>
+        <Association Name="FK_StudentTble_ClassLevel">
+          <End Type="SchoolErpSystemModel.ClassLevel" Role="ClassLevel" Multiplicity="1" />
+          <End Type="SchoolErpSystemModel.StudentTble" Role="StudentTble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassLevel">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="StudentTble">
+              <PropertyRef Name="ClassLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTble_ClassType">
+          <End Type="SchoolErpSystemModel.ClassType" Role="ClassType" Multiplicity="1" />
+          <End Type="SchoolErpSystemModel.StudentTble" Role="StudentTble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassType">
+              <PropertyRef Name="ClassTypeID" />
+            </Principal>
+            <Dependent Role="StudentTble">
+              <PropertyRef Name="Section" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTble_tblCountry">
+          <End Type="SchoolErpSystemModel.tblCountry" Role="tblCountry" Multiplicity="0..1" />
+          <End Type="SchoolErpSystemModel.StudentTble" Role="StudentTble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCountry">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="StudentTble">
+              <PropertyRef Name="Nationality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="DesignationID" />
+          </Key>
+          <Property Name="DesignationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designation1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StaffType">
+          <Key>
+            <PropertyRef Name="StaffTypeID" />
+          </Key>
+          <Property Name="StaffTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AutoID">
+          <Key>
+            <PropertyRef Name="Idname" />
+          </Key>
+          <Property Name="Idname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="getStaffwithID_Result">
+          <Property Type="Int32" Name="StaffID" Nullable="false" />
+          <Property Type="Int32" Name="Designation" Nullable="false" />
+          <Property Type="Int32" Name="StaffType" Nullable="false" />
+          <Property Type="String" Name="Firstname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Lastname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Gender" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Phone1" Nullable="false" Precision="12" Scale="0" />
+          <Property Type="Decimal" Name="Phone2" Nullable="true" Precision="12" Scale="0" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DateOfAppointment" Nullable="false" />
+          <Property Type="String" Name="Nationality" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="HighestQualification" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="YearOfExperience" Nullable="false" />
+          <Property Type="String" Name="PreviouseOrganization" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Image" Nullable="false" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SchoolErpSystemModelStoreContainer" CdmEntityContainer="SchoolErpSystemEntities">
+          <EntitySetMapping Name="ClassTypes">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.ClassType">
+              <MappingFragment StoreEntitySet="ClassType">
+                <ScalarProperty Name="ClassTypeID" ColumnName="ClassTypeID" />
+                <ScalarProperty Name="ClassType1" ColumnName="ClassType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="Subject1" ColumnName="Subject" />
+                <ScalarProperty Name="ClassType" ColumnName="ClassType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSessions">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.TblSession">
+              <MappingFragment StoreEntitySet="TblSession">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Term" ColumnName="Term" />
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassLevels">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.ClassLevel">
+              <MappingFragment StoreEntitySet="ClassLevel">
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Levelname" ColumnName="Levelname" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeTypes">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.FeeType">
+              <MappingFragment StoreEntitySet="FeeType">
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="FeeTypeID" ColumnName="FeeTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeStructures">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.FeeStructure">
+              <MappingFragment StoreEntitySet="FeeStructure">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FeeTypeID" ColumnName="FeeTypeID" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCities">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.tblCity">
+              <MappingFragment StoreEntitySet="tblCity">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="Cityname" ColumnName="Cityname" />
+                <ScalarProperty Name="Cityid" ColumnName="Cityid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCountries">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.tblCountry">
+              <MappingFragment StoreEntitySet="tblCountry">
+                <ScalarProperty Name="Cname" ColumnName="Cname" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStates">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.tblState">
+              <MappingFragment StoreEntitySet="tblState">
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="Sname" ColumnName="Sname" />
+                <ScalarProperty Name="SID" ColumnName="SID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTbles">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.StudentTble">
+              <MappingFragment StoreEntitySet="StudentTble">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+                <ScalarProperty Name="StudentNo" ColumnName="StudentNo" />
+                <ScalarProperty Name="mothersEmail" ColumnName="mothersEmail" />
+                <ScalarProperty Name="Mothersno" ColumnName="Mothersno" />
+                <ScalarProperty Name="Fathersemail" ColumnName="Fathersemail" />
+                <ScalarProperty Name="Fatherno" ColumnName="Fatherno" />
+                <ScalarProperty Name="Mothersoccupation" ColumnName="Mothersoccupation" />
+                <ScalarProperty Name="Mothersname" ColumnName="Mothersname" />
+                <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+                <ScalarProperty Name="Fathername" ColumnName="Fathername" />
+                <ScalarProperty Name="AdmissionDate" ColumnName="AdmissionDate" />
+                <ScalarProperty Name="ClassAlphabet" ColumnName="ClassAlphabet" />
+                <ScalarProperty Name="ClassLevel" ColumnName="ClassLevel" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LocalGov" ColumnName="LocalGov" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.Designation">
+              <MappingFragment StoreEntitySet="Designation">
+                <ScalarProperty Name="Designation1" ColumnName="Designation" />
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffTypes">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.StaffType">
+              <MappingFragment StoreEntitySet="StaffType">
+                <ScalarProperty Name="StaffType1" ColumnName="StaffType" />
+                <ScalarProperty Name="StaffTypeID" ColumnName="StaffTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutoIDs">
+            <EntityTypeMapping TypeName="SchoolErpSystemModel.AutoID">
+              <MappingFragment StoreEntitySet="AutoID">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Idname" ColumnName="Idname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

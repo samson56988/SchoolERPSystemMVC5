@@ -1,0 +1,12 @@
+﻿@model SchoolERPSYSTEM.Models.tblState
+
+<option value="">--Select State----</option>
+
+@if(ViewBag.StateOfOrigin!=null)
+{
+    foreach(var item in ViewBag.StateOfOrigin)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
+

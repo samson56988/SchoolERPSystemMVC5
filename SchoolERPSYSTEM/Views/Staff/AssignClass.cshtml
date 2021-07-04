@@ -1,0 +1,111 @@
+﻿@model SchoolERPSYSTEM.Models.AssignClass
+
+@{
+    ViewBag.Title = "AssignClass";
+    Layout = "~/Views/Admin.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Staff</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-arrow-alt-circle-right"></i> Assign Class</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+                            @using (Html.BeginForm("AssignTeaherToClass", "Staff", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <h4>AssignClass</h4>
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.StaffID, "Teacher", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(model => model.StaffID, new SelectList(ViewBag.Staff, "StaffID", "Name"),"--Select--", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.StaffID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ClassLevelID, "Class Level", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(model => model.ClassLevelID, new SelectList(ViewBag.Level, "LevelID", "Levelname"),"--Select--", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ClassLevelID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Prefix,"Prefix", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Prefix, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Prefix, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <button type="submit" class="btn btn-github">
+                                                    <i class="fas fa-plus fa-lg"></i> Add
+                                                </button>
+                                                <a href="@Url.Action("AssignedClass", "Staff")" class="btn btn-orange">
+                                                    <i class="fas fa-arrow-alt-circle-left"></i>
+                                                    <span>
+                                                        <strong>Back to List</strong>
+                                                    </span>
+                                                </a>
+
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

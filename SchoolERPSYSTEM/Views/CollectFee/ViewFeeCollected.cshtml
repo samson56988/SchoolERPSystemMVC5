@@ -1,0 +1,156 @@
+﻿@model IEnumerable<SchoolERPSYSTEM.Models.CollectFee>
+
+@{
+    ViewBag.Title = "ViewFeeCollected";
+    Layout = "~/Views/Admin.cshtml";
+}
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Fee</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Fee</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fab fa-paypal"></i> Collected Fee</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+
+                            
+
+                                    @using (Html.BeginForm("Search", "CollectFee", FormMethod.Get))
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Session</label>
+                                                    <input type="text" class="form-control" id="search" name="session" />                                                                                                     
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Level</label>                                               
+                                                <input type="text" class="form-control" id="search" name="level" />                                              
+                                            </div>
+                                        </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-github">
+                                                            <i class="fas fa-search"></i>  Query Table
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    }
+
+
+                             
+                            <table class="table table-bordered" id="FeeCollected">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>
+                                            <label>Admission No</label>
+                                        </th>
+                                        <th>
+                                            <label>First Name</label>
+                                        </th>
+                                        <th>
+                                            <label>Last Name</label>
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Class)
+                                        </th>
+                                        <th>
+                                            <label>Amount</label>
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Session)
+                                        </th>
+
+                                        <th>
+                                            <label>Action</label>
+                                        </th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AdmissionNo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FirstName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Lastname)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Class)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.amount)
+                                            </td>
+
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Session)
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Edit", "TblSessions", new { id = item.id })" class="btn btn-mini btn-outline-orange icon-edit bigger-10"><img src="~/images/iconfinder_46798_edit_control_icon_32px.png"></a>
+                                               
+                                            </td>
+                                        </tr>
+                                    }
+
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.dataTables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    }

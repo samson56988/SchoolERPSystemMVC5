@@ -1,0 +1,263 @@
+﻿@model SchoolERPSYSTEM.Models.StudentTble
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Admin.cshtml";
+}
+
+<<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-users"></i> Student</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+                           
+                            <div>
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.AdmissionNo)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.AdmissionNo)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Firstname)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Firstname)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.middlename)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.middlename)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Lastname)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Lastname)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.DOB)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.DOB)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.LocalGov)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.LocalGov)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Gender)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Gender)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Religion)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Religion)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ClassAlphabet)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ClassAlphabet)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.AdmissionDate)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.AdmissionDate)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Fathername)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Fathername)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.FatherOccupation)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.FatherOccupation)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Mothersname)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Mothersname)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Mothersoccupation)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Mothersoccupation)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Fatherno)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Fatherno)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Fathersemail)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Fathersemail)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Mothersno)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Mothersno)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.mothersEmail)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.mothersEmail)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.StudentNo)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.StudentNo)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.StudentEmail)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.StudentEmail)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Address)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Address)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ClassLevel1.Levelname)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ClassLevel1.Levelname)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.ClassType.ClassType1)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ClassType.ClassType1)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.tblCountry.Cname)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.tblCountry.Cname)
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <p>
+                               
+                                <a href="@Url.Action("Index", "StudentTbles")" class="btn btn-orange">
+                                    <i class="fas fa-arrow-alt-circle-left"></i>
+                                    <span>
+                                        <strong>Back to List</strong>
+                                    </span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

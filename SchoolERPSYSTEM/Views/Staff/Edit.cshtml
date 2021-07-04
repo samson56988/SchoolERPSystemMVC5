@@ -1,0 +1,295 @@
+﻿@model SchoolERPSYSTEM.Models.MStaff
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Admin.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Staff</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-users"></i> Staff</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+                            @using (Html.BeginForm("Edit", "Staff", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                               
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.StaffID)
+                                    @*<div class="form-group">
+                                            @Html.LabelFor(model => model.StaffID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.StaffID, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.StaffID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>*@
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Staff Type</label>
+
+                                                @Html.DropDownListFor(model => model.Designation, ViewData["Id"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                                               
+                                                @Html.ValidationMessageFor(model => model.StaffType, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <label>Designation</label>
+
+                                                @Html.DropDownListFor(model => model.StaffType, ViewData["Id1"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                                                @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <label>Last Name</label>
+                                                @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                                                @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone</label>
+
+                                                @Html.EditorFor(model => model.Phone1, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone 1" } })
+                                                @Html.ValidationMessageFor(model => model.Phone1, "", new { @class = "text-danger" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <label>Phone 2</label>
+                                                @Html.EditorFor(model => model.Phone2, new { htmlAttributes = new { @class = "form-control", placeholder = "Phone 2" } })
+                                                @Html.ValidationMessageFor(model => model.Phone2, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Email</label>
+
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <label>Date Of Appointment</label>
+                                                @Html.EditorFor(model => model.DateOfAppointment, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.DateOfAppointment, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nationality</label>
+
+                                                @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control", placeholder = "Nationality" } })
+                                                @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <label>Address</label>
+                                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Address" } })
+                                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Highest Qualification</label>
+
+                                                @Html.EditorFor(model => model.HighestQualification, new { htmlAttributes = new { @class = "form-control", placeholder = "Highest Qualification" } })
+                                                @Html.ValidationMessageFor(model => model.HighestQualification, "", new { @class = "text-danger" })
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+
+                                                <label>Years Of Experience</label>
+                                                @Html.EditorFor(model => model.YearOfExperience, new { htmlAttributes = new { @class = "form-control", placeholder = "Years Of Experience" } })
+                                                @Html.ValidationMessageFor(model => model.YearOfExperience, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Previous Organization</label>
+
+                                                @Html.EditorFor(model => model.PreviouseOrganization, new { htmlAttributes = new { @class = "form-control", placeholder = "Previous Organization" } })
+                                                @Html.ValidationMessageFor(model => model.PreviouseOrganization, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                <label>Upload Image</label>
+                                                <input type="file" name="ImageFile" required />
+                                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+
+                                                <label>Gender</label>
+                                                @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control", placeholder = "Gender" } })
+                                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button type="submit" class="btn btn-github">
+                                                <i class="fas fa-recycle"></i> Edit
+                                            </button>
+                                            <a href="@Url.Action("Index", "Staff")" class="btn btn-orange">
+                                                <i class="fas fa-arrow-alt-circle-left"></i>
+                                                <span>
+                                                    <strong>Back to List</strong>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,213 @@
+﻿@model SchoolERPSYSTEM.Models.Role
+
+@{
+    ViewBag.Title = "Role";
+    Layout = "~/Views/Admin.cshtml";
+}
+
+<link href="~/Asset/Tab.css" rel="stylesheet" />
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Staff</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-users"></i> Account Setup</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+
+
+                            <!-- For demo purpose -->
+                            <!-- End -->
+                            <div class="row">
+                                <div class="col-lg-12 ">
+
+                                    <div class="p-5 bg-white rounded shadow mb-5">
+                                        <!-- Rounded tabs -->
+                                        <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light-info border-0 rounded-nav">
+                                            <li class="nav-item flex-sm-fill">
+                                                <a id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active"><i class="fas fa-user"></i> Admin</a>
+                                            </li>
+                                            <li class="nav-item flex-sm-fill">
+                                                <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+                                            </li>
+                                            <li class="nav-item flex-sm-fill">
+                                                <a id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold"><i class="fas fa-user-tie"></i> Bursar</a>
+                                            </li>
+                                        </ul>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div id="home" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade px-4 py-5 show active">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4>Create Account</h4>
+                                                        <hr />
+                                                        <form action="@Url.Action("CreateAdminRole")" method="post">
+
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Staff ID</label>
+                                                                        @Html.DropDownListFor(model => model.StaffID, ViewData["Id"] as List<SelectListItem>, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Username</label>
+                                                                        <input type="text" id="name" class="form-control" placeholder="Username" name="Username" required
+                                                                               minlength="4" maxlength="8" size="10">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Password</label>
+                                                                        <input type="password" id="name" class="form-control" placeholder="Password" name="Password" required
+                                                                               minlength="4" maxlength="8" size="10">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-outline-info">
+                                                                        <i class="fas fa-plus fa-lg"></i> Create
+                                                                    </button>                                     
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div id="profile" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4>Create Account</h4>
+                                                        <hr />
+                                                        <form action="@Url.Action("CreateTeacherRole")" method="post">
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Staff ID</label>
+                                                                       @Html.DropDownListFor(model => model.StaffID, ViewData["Id"] as List<SelectListItem>, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Username</label>
+                                                                        <input type="text" id="name" class="form-control" placeholder="Username" name="Username" required
+                                                                               minlength="4" maxlength="8" size="10">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Password</label>
+                                                                        <input type="password" id="name" class="form-control" placeholder="Password" name="Password" required
+                                                                               minlength="4" maxlength="8" size="10">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">                                                                    
+                                                                    <button type="submit" class="btn btn-outline-info">
+                                                                        <i class="fas fa-plus fa-lg"></i> Create
+                                                                    </button>                                                     
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="contact" role="tabpanel" aria-labelledby="contact-tab" class="tab-pane fade px-4 py-5">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4>Create Account</h4>
+                                                        <hr />
+                                                        <form action="@Url.Action("CreateBursarRole")" method="post">
+
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Staff ID</label>
+                                                                        @Html.DropDownListFor(model => model.StaffID, ViewData["Id"] as List<SelectListItem>, new { @class = "form-control" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Username</label>
+                                                                        <input type="text" id="name" class="form-control" placeholder="Username" name="Username" required
+                                                                               minlength="4" maxlength="8" size="10">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label>Password</label>
+                                                                        <input type="password" id="name" class="form-control" placeholder="Password" name="Password" required
+                                                                               minlength="4" maxlength="8" size="10">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-outline-info">
+                                                                        <i class="fas fa-plus fa-lg"></i> Create
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End rounded tabs -->
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

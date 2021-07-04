@@ -1,0 +1,201 @@
+﻿@model SchoolERPSYSTEM.Models.StaffFinance
+
+@{
+    ViewBag.Title = "StaffFinance";
+    Layout = "~/Views/Admin.cshtml";
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title m-b-0"><i class="fas fa-cash-register"></i> Staff Finacial Details</h5>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="card-body">
+                            @using (Html.BeginForm("EnterStaffFinance", "Staff", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.StaffID,"Staff Name", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.DropDownListFor(model => model.StaffID, new SelectList(ViewBag.Staff, "StaffID", "Name"), "--Select--", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.StaffID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.BasicSalary,"Basic Salary", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.BasicSalary, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.BasicSalary, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.HRA,"H.r.a", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.HRA, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.HRA, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.HouseA,"House allowance(NGN)", htmlAttributes: new { @class = "control-label col-md-6" })
+
+                                                @Html.EditorFor(model => model.HouseA, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.HouseA, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.TransA, "Transport Allowance", htmlAttributes: new { @class = "control-label col-md-6" })
+
+                                                @Html.EditorFor(model => model.TransA, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.TransA, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Tax, "Tax", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.Tax, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Tax, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Vat,  htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.Vat, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Vat, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.latenessFee,"Late Fee", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.latenessFee, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.latenessFee, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.NHF,"NHF", htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.NHF, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.NHF, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                                @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                            <div class="form-group">
+                                               
+                                                <div class="col-md-offset-2 col-md-10">
+        
+                                                    <button type="submit" class="btn btn-github">
+                                                        <i class="fas fa-plus fa-lg"></i> Save
+                                                    </button>
+                                                    <a href="@Url.Action("Index", "Staff")" class="btn btn-orange">
+                                                        <i class="fas fa-arrow-alt-circle-left"></i>
+                                                        <span>
+                                                            <strong>Back to List</strong>
+                                                        </span>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+
+
+        //$(document).ready(function () {
+
+        //    toastr.error("Test");
+        //});
+
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        @*function Delete(id) {
+            alertify.confirm('Web Api CRUD Operations','Are You Sure to Delete this Record ?',function(){
+                window.location.href  = '@Url.Action("Delete","Employee")/'+id;
+            },null );
+        }*@
+    </script>
+}
